@@ -1,0 +1,21 @@
+function updateEmail() {
+  let divElt = document.getElementById("email-details-<%= @email.id %>");
+  if (divElt) {
+    divElt.classList.remove('email-details--read');
+    divElt.classList.remove('email-details--unread');
+    divElt.classList.add("email-details--<%= @email.read_status %>");
+  }
+  let liElt = document.getElementById("email-item-<%= @email.id %>");
+  if (liElt) {
+    liElt.classList.remove('email-item--read');
+    liElt.classList.remove('email-item--unread');
+    liElt.classList.add("email-item--<%= @email.read_status %>");
+  }
+  let buttonElt = document.querySelector("button.email-update");
+  buttonElt.classList.remove('email-update--read');
+  buttonElt.classList.remove('email-update--unread');
+  buttonElt.classList.add("email-update--<%= @email.read_status %>");
+  buttonElt.textContent = "<%= @email.read ? 'Marquer non lu' : 'Marquer lu'%>";
+}
+
+updateEmail();

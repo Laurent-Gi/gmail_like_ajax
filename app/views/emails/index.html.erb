@@ -1,0 +1,17 @@
+<div class="page">
+
+  <div class="page__head">
+    <%= link_to 'Recevoir un email', emails_path, method: :post, remote: true, :class => "btn btn-secondary", :id => "newFakeEmail" %>
+  </div>
+
+  
+  <div class="page__main">
+    <div class="page__side">
+      <%= render partial: 'list', locals: {emails: @emails} %>
+    </div>
+
+    <div class="page__content">
+    </div>
+  </div>
+
+</div>

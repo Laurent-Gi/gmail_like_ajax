@@ -1,0 +1,6 @@
+function addEmailToList() {
+  let ulElt = document.querySelector("ul.email-list")
+  ulElt.insertAdjacentHTML("afterbegin", "<%= j render partial: 'item', locals: {email: @email} %>")
+  console.log("Je préfère afficher en 'afterbegin' plutôt que 'beforeend'");
+}
+addEmailToList();

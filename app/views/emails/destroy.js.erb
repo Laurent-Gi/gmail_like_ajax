@@ -1,0 +1,12 @@
+function deleteEmail() {
+  let divElt = document.getElementById("email-details-<%= @email.id %>");
+  if (divElt) {
+    divElt.remove();
+  }
+  let liElt = document.getElementById("email-item-<%= @email.id %>");
+  if (liElt) {
+    liElt.remove();
+  }
+}
+
+deleteEmail();
