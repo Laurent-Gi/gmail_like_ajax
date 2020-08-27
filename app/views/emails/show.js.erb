@@ -4,12 +4,19 @@ function showEmail() {
     divElt.firstChild.remove();
   }
   divElt.insertAdjacentHTML("afterbegin", "<%= j render partial: 'email', locals: {email: @email, remote: true} %>");
-  let selected = document.querySelectorAll(".email-item--selected");
 
+  let selected = document.querySelectorAll(".email-item--selected");
   selected.forEach(item => item.classList.remove("email-item--selected"));
 
   let active = document.getElementById("email-item-<%= @email.id %>");
   active.classList.add("email-item--selected");
+
+  let liElt = document.getElementById("email-item-<%= @email.id %>")
+  if (liElt) {
+    liElt.classList.remove('email-item--read')
+    liElt.classList.remove('email-item--unread')
+    liElt.classList.add("email-item--<%= @email.read_status %>")
+  }
 }
 
 showEmail();

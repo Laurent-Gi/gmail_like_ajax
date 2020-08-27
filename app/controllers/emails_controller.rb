@@ -14,6 +14,9 @@ class EmailsController < ApplicationController
 
   def show
     @email = Email.find(params[:id])
+    if !@email.read # Si l'email n'est pas encore lu, on le passe à lu
+      @email.update(read: true) # puisqu'on vient de le show !
+    end
     respond_to do |format|
       format.html { }
       format.js { }
